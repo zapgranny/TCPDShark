@@ -1,11 +1,11 @@
 --This script was created by T3CHKOMMIE. It is released under the GNU GPL lisense
---This script has been designed as a foreniscs tool to compensate for the lack of
+--This script has been designed as a forensics tool to compensate for the lack of
 --development of the TCPdSTAT tool. Use it on previously captured PCAP files to 
---analyze 7 protocols that are common in intutions and attacks. This script looks
---to SNORT for examples. Threasholds can be set to flag protocols when they reach
+--analyze 7 protocols that are common in intrusions and attacks. This script looks
+--to SNORT for examples. Thresholds can be set to flag protocols when they reach
 --a certain percentage value. Everything is done by percentages. It is recommended
---to use this script on a pcap file collected on a firewall or similar device in 
---a specific network topology. It is also recommended to use this tool to gain a
+--to use this script on a PCAP file collected on a firewall or similar device in 
+--a specific network topology. It is also recommended to use this tool to gain an
 --understanding and "baseline" of your network so that you can better identify
 --network abnormalities by protocol. 
 
