@@ -19,13 +19,13 @@
 --Use this tool to quickly search PCAP files for typical signs of intrusion. 
 --Use this tool to quickly optain baseline measurements of network by protocol.
 
--- this only works in wireshark
+-- this only works in Wireshark
 if not gui_enabled() then return end
 
 -- range limits for protocols in percents
 
 
--- rating lowest threshhold. Thus, if TelnetT1 is set to 3, "warnigs" we beging when telnet is above 3% of total packet transfer but below telnet2 witch is the min threashold for DANGER!
+-- rating lowest threshhold. Thus, if TelnetT1 is set to 3, "warnings" we begin when telnet is above 3% of total packet transfer but below telnet2 which is the min. threshhold for DANGER!
 --      Suspcious    |    Warning    |   to Danger and beyond
 
 local irct0 = 0 local irct1 = 1 local irct2 = 2
@@ -489,7 +489,7 @@ local function getPercent(p)
 
             else
 
-      return "Something bad happend\n"
+      return "Something bad happened!\n"
             end
 
            
@@ -498,7 +498,7 @@ end
 
 
 function myproto.dissector(tvb,pinfo,tree)
-    -- this if need to stay outside of the loop
+    -- this if needs to stay outside of the loop
         
         if pinfo.number > total_packets then
                  total_packets = pinfo.number
@@ -626,7 +626,7 @@ local function menu_view_tree()
     set_filter("")
     apply_filter()
     
-    tw = TextWindow.new("TCPdShark: Report | Version 1.0.0")
+    tw = TextWindow.new("TCPdShark: Report | Version 1.1.0")
     --tw:clear()
     tw:set_atclose(function() tw = nil end)
     
