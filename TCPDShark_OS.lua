@@ -500,9 +500,9 @@ end
 function myproto.dissector(tvb,pinfo,tree)
     -- this if needs to stay outside of the loop
         
-        if pinfo.number > total_packets then
-                 total_packets = pinfo.number
-        end
+        --if pinfo.number > total_packets then
+        --         total_packets = pinfo.number
+        --end
     -- get a table of all FieldInfo objects
         local fields = { all_field_infos() }
         for ix, finfo in ipairs(fields) do
@@ -512,6 +512,7 @@ function myproto.dissector(tvb,pinfo,tree)
 
                 --if finfo.name == "ip" then
                     --ip_packets = ip_packets + 1
+                total_packets = total_packets + 1
                 if finfo.name == "tcp" then
                     tcp_packets = tcp_packets + 1
                 elseif finfo.name == "http" then
@@ -609,6 +610,9 @@ function myproto.dissector(tvb,pinfo,tree)
       
                 end
                     
+        end
+        if total_packets > pinfo.number then
+            total_packets = pinfo.number
         end
     --updateWindow()
 end
