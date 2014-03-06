@@ -636,6 +636,8 @@ local function menu_view_tree()
     --tw:clear()
     tw:set_atclose(function() tw = nil end)
     
+    output = ""
+
     output =   output ..    "\n******* Analysis Number: "..os.time().." *******\n"
     output =   output ..    "\nFLAG KEY :\n\"S\" - Suspicious\n\"W\" - Warning\n\"D\" - Danger\n"
     output =   output ..    "|  FLAG  |    Protocol    |     Packets    |\n"
