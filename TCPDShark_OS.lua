@@ -609,12 +609,14 @@ function myproto.dissector(tvb,pinfo,tree)
 
       
                 end
-                    
+                
         end
-        if total_packets > pinfo.number then
-            total_packets = pinfo.number
-        end
-    --updateWindow()
+
+    --    if total_packets < pinfo.number then
+         total_packets = tcp_packets + http_packets + ssl_packets + squid_packets + smtp_packets + snmp_packets + aatp_packets+ ftp_packets + pop3_packets + telnet_packets + ssh_packets + irc_packets + udp_packets + dns_packets + bgp_packets + rip_packets + arp_packets + icmp_packets + igmp_packets + ospf_packets + ipip_packets + ipv6_packets + frag_packets    
+        -- total_packets = pinfo.number
+        --end
+    updateWindow()
 end
 -- register our new dummy protocol for post-dissection
 register_postdissector(myproto)
@@ -643,6 +645,7 @@ local function menu_view_tree()
     output = output.."\n\n********** End Of Analysis **********"
 
     updateWindow()
+
 end
 
 local function dialog_menu(Protocols)
